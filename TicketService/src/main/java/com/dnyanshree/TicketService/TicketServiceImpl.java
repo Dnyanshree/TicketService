@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -20,7 +19,8 @@ public class TicketServiceImpl implements ITicketService {
 	private ArrayList<Seat> level3Seats = new ArrayList<Seat>();
 	private ArrayList<Seat> level4Seats = new ArrayList<Seat>();
 	private ArrayList<SeatHold> seatHoldList = new ArrayList<>();
-	private int id=(int) (System.currentTimeMillis() & 0xfffffff);//generate random number for hold id
+	private int id=5465;
+	//private int id=(int) (System.currentTimeMillis() & 0xfffffff);//generate random number for hold id
 	private Timer timer;
 	
 	public void init() {

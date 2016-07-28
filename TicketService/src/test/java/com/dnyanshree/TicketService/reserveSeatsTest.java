@@ -13,8 +13,8 @@ public class reserveSeatsTest {
 		TicketServiceImpl tickets = new TicketServiceImpl(); 
 		tickets.init();   			
 		tickets.findAndHoldSeats(2, Optional.ofNullable(1), Optional.ofNullable(4), "a@c.com");
-		String actual =tickets.reserveSeats(5000, "a@c.com");
-		String expected = String.valueOf(5000);
+		String actual =tickets.reserveSeats(5465, "a@c.com");
+		String expected = String.valueOf(5465);
 				assertEquals(expected, actual);
 
 	}
