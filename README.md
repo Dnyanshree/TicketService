@@ -17,12 +17,13 @@ Reserve and commit a specific group of held seats for a customer
 4. Seats that are on hold are reserved are stored in a SeatHold object that contains details - seatHoldId integer field, customer email and confirmation code as string fields and an arraylist of Seat object with the seats that are on hold or reserved
 5. Timer, TimerTask used to run background thread to count the seconds once a hold is acquired and remove the hold after 10 seconds if not reserved
 
-Assumptions made:
+#####Assumptions made:
 
 1. User can hold/reserve a maximum of 5 seats at a time
 2. Hold on seats will only last for 10 seconds before expiring. So seats need to be reserved within 10 seconds of holding them
 
-Steps to Configure and Run the project on Command Line (Make sure you have latest Maven, JDK/JRE 1.8 installed in your machine to run this project):
+#####Steps to Configure and Run the project on Command Line 
+(Make sure you have latest Maven, JDK/JRE 1.8 installed in your machine to run this project):
 
 1. Download/Clone the project from here: https://github.com/Dnyanshree/TicketServiceProject
 2. Open Command prompt and goto location on your machine where TicketService folder is located
