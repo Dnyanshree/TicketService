@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -19,7 +20,7 @@ public class TicketServiceImpl implements ITicketService {
 	private ArrayList<Seat> level3Seats = new ArrayList<Seat>();
 	private ArrayList<Seat> level4Seats = new ArrayList<Seat>();
 	private ArrayList<SeatHold> seatHoldList = new ArrayList<>();
-	private int id=5000;
+	private int id=(int) (System.currentTimeMillis() & 0xfffffff);//generate random number for hold id
 	private Timer timer;
 	
 	public void init() {
@@ -121,22 +122,18 @@ public class TicketServiceImpl implements ITicketService {
 				for (Seat seat : seats) {
 					seatHoldObj.SeatList.add(seat);
 				}
-				seatHoldObj.setSeatHoldId(id);
-				//Random Id generator:
-				//Integer.valueOf(UUID.randomUUID().toString());				
+				
+				seatHoldObj.setSeatHoldId(id);		
 				seatHoldObj.setCustomerEmail(customerEmail);
 				seatHoldObj.setLevelNum(i);
 				seatHoldList.add(seatHoldObj);
-				startTimer(15,id,i);
+				startTimer(60,id,i);
 				id+=1;
-				System.out.println("Seats are set on hold for you."
-						+ " Please reserve within 15 seconds or the hold will be removed."
-						+ " Thanks! Check details below:");
-				seatHoldList.forEach(System.out::println);
+				//seatHoldList.forEach(System.out::println);
 				return seatHoldObj;
 			}
-		} else
-			System.out.println("No seats booked. Try again!");
+		} else{
+			System.out.println("No seats booked. Try again!");}
 		return null;
 	}
 
@@ -221,8 +218,6 @@ public class TicketServiceImpl implements ITicketService {
 					}
 					timer.cancel();
 						seatHold.setConfirmCode(String.valueOf(seatHold.getSeatHoldId()));
-					System.out.println("Confirmation Code: " + seatHold.getConfirmCode());
-					System.out.println(seatHold);
 					return seatHold.getConfirmCode();
 			} else {// user entered invalid holdId &/or email
 				System.out.println("Enter valid details. Try Again!");
@@ -239,7 +234,9 @@ public class TicketServiceImpl implements ITicketService {
 	}
 
 	private boolean validateFindAndHoldSeatsParameters(int numSeats, int minLevel, int maxLevel, String customerEmail) {
-		if (validateNumOfSeatsRequested(numSeats) && validateLevels(minLevel, maxLevel) && validateEmail(customerEmail))
+		if (validateNumOfSeatsRequested(numSeats))
+			if(validateLevels(minLevel, maxLevel)) 
+				if(validateEmail(customerEmail))
 			return true;
 		return false;
 	}
@@ -256,7 +253,7 @@ public class TicketServiceImpl implements ITicketService {
 		if (numSeats > 0 && numSeats <= 5)
 			return true;
 		else
-			System.out.println("number of seats should be a positive number, greater than zero and not greater than 5");
+			System.out.println("Number of seats should be between 1 and 5");
 		return false;
 	}
 
@@ -289,7 +286,6 @@ public class TicketServiceImpl implements ITicketService {
 
 	private void startTimer(int seconds, int holdId, int level){
 		timer = new Timer();
-		System.out.println("Timer started for Hold Id: "+holdId);
 		timer.schedule( new removeHold(holdId,level), seconds * 1000);		
 	}
 	
@@ -303,7 +299,7 @@ public class TicketServiceImpl implements ITicketService {
 		@Override
 		public void run() {			
 			  timer.cancel();
-			  System.out.println("Timer Ended for HoldId: "+holdId);
+			  System.out.println("Timeout! Start over again.");
 			  removeHoldformList(holdId,level);			
 		}		
 	}
