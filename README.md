@@ -2,11 +2,11 @@
 
 #####Problem Statement:
 
-Find the number of seats available within the venue, optionally by seating level
+- Find the number of seats available within the venue, optionally by seating level
 Note: available seats are seats that are neither held nor reserved.
-Find and hold the best available seats on behalf of a customer, potentially limited to specific levels
+- Find and hold the best available seats on behalf of a customer, potentially limited to specific levels
 Note: each ticket hold should expire within a set number of seconds.
-Reserve and commit a specific group of held seats for a customer
+- Reserve and commit a specific group of held seats for a customer
 (No GUI and/or database used)
 
 #####Data Structure Used:
