@@ -15,12 +15,12 @@
 2. A map is used to store all the venue seats data with key as venue level enum and value as Arraylist of Seat object
 3. Seat object contains details - row number, column number integer fields, boolean fields for Hold and Reserve status, getter and setter methods, parameterised constructor and toString method
 4. Seats that are on hold are reserved are stored in a SeatHold object that contains details - seatHoldId integer field, customer email and confirmation code as string fields and an arraylist of Seat object with the seats that are on hold or reserved
-5. Timer, TimerTask used to run background thread to count the seconds once a hold is acquired and remove the hold after 10 seconds if not reserved
+5. Timer, TimerTask used to run background thread to count the seconds once a hold is acquired and remove the hold after 60 seconds if not reserved
 
 #####Assumptions made:
 
 1. User can hold/reserve a maximum of 5 seats at a time
-2. Hold on seats will only last for 10 seconds before expiring. So seats need to be reserved within 10 seconds of holding them
+2. Hold on seats will only last for 60 seconds before expiring. So seats need to be reserved within 10 seconds of holding them
 
 #####Steps to Configure and Run the project on Command Line 
   (Make sure you have latest Maven, JDK/JRE 1.8 installed in your machine to run this project):
