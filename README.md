@@ -3,11 +3,11 @@
 #####Problem Statement:
 
 - Find the number of seats available within the venue, optionally by seating level
-Note: available seats are seats that are neither held nor reserved.
+  Note: available seats are seats that are neither held nor reserved.
 - Find and hold the best available seats on behalf of a customer, potentially limited to specific levels
-Note: each ticket hold should expire within a set number of seconds.
+  Note: each ticket hold should expire within a set number of seconds.
 - Reserve and commit a specific group of held seats for a customer
-(No GUI and/or database used)
+  (No GUI and/or database used)
 
 #####Data Structure Used:
 
@@ -23,14 +23,15 @@ Note: each ticket hold should expire within a set number of seconds.
 2. Hold on seats will only last for 10 seconds before expiring. So seats need to be reserved within 10 seconds of holding them
 
 #####Steps to Configure and Run the project on Command Line 
-(Make sure you have latest Maven, JDK/JRE 1.8 installed in your machine to run this project):
+  (Make sure you have latest Maven, JDK/JRE 1.8 installed in your machine to run this project):
 
-1. Download/Clone the project from here: https://github.com/Dnyanshree/TicketServiceProject
+1. Download/Clone the project from here: 
+    https://github.com/Dnyanshree/TicketServiceProject
 2. Open Command prompt and goto location on your machine where TicketService folder is located
 3. Run Command: `mvn compile`
-  Make sure you get BUILD SUCCESS
+    Make sure you get BUILD SUCCESS
 4. Run Command: `mvn package`
-  Make sure you get BUILD SUCCESS
-  This command will build jar file of this project in the Target folder of the project and also run the test cases
+    Make sure you get BUILD SUCCESS
+    This command will build jar file of this project in the Target folder of the project and also run the test cases
 5. Finally, to run the project, run command: 
-  `java -cp target/TicketService-0.0.1.jar com.dnyanshree.TicketService.TicketServiceApp`
+    `java -cp target/TicketService-0.0.1.jar com.dnyanshree.TicketService.TicketServiceApp`
