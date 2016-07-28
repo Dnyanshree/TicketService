@@ -28,7 +28,7 @@
 1. Download/Clone the project from here: 
     https://github.com/Dnyanshree/TicketServiceProject
 2. Open Command prompt and goto location on your machine where TicketService folder is located
-3. 3. Run Command: `mvn compile`
+3. Run Command: `mvn compile`
      Make sure you get BUILD SUCCESS
 3. Run Command: `mvn package`
      Make sure you get BUILD SUCCESS
