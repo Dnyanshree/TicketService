@@ -12,7 +12,6 @@ import java.util.TimerTask;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-
 public class TicketServiceImpl implements ITicketService {
 	private Map<VenueLevel, ArrayList<Seat>> tickets = new HashMap<VenueLevel, ArrayList<Seat>>();
 	private ArrayList<Seat> level1Seats = new ArrayList<Seat>();

@@ -1,11 +1,7 @@
 package com.dnyanshree.TicketService;
 
-
 import java.util.Optional;
 import java.util.Scanner;
-
-
-
 
 public class TicketServiceApp 
 {
