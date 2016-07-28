@@ -28,10 +28,8 @@
 1. Download/Clone the project from here: 
     https://github.com/Dnyanshree/TicketServiceProject
 2. Open Command prompt and goto location on your machine where TicketService folder is located
-3. Run Command: `mvn compile`
-    Make sure you get BUILD SUCCESS
-4. Run Command: `mvn package`
+3. Run Command: `mvn package`
     Make sure you get BUILD SUCCESS
     This command will build jar file of this project in the Target folder of the project and also run the test cases
-5. Finally, to run the project, run command: 
+4. Finally, to run the project, run command: 
     `java -cp target/TicketService-0.0.1.jar com.dnyanshree.TicketService.TicketServiceApp`
